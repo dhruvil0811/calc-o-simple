@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- <link rel="stylesheet" href="C:\Users\admin\Desktop\WEBSITE-CREATION\calc-o-simple\calc.css"> -->
+</head>
+
+<style>
+    .nav {
+        text-align: center;
+        background-color: #98D7C2;
+        height: 125px;
+        /* padding-top:2%; */
+    }
+
+    .nav_img {
+        height: 125px;
+        width: 250px;
+    }
+
+    .main_left {
+        background-color: #167D7F;
+        width: 40%;
+        text-align: left;
+        color: #29A0B1;
+        border-style: solid;
+        border-width: 30px;
+        height: 300px;
+        float: left;
+    }
+
+    .main_left_1 {
+        color: white;
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding-top: 10px;
+    }
+
+    .input_img_1 {
+        width: 200px;
+        height: 75px;
+        float: left;
+    }
+
+    .input_img_2 {
+        width: 200px;
+        height: 75px;
+        float: left;
+    }
+
+    .first_1 {
+        float: left;
+        background-color: #167D7F;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        color: rgba(36, 35, 35, 0.946);
+        border-color: rgba(68, 65, 65, 0.693);
+        /* font-family */
+        text-align: center;
+        font-family: monospace;
+    }
+
+    .table {
+        padding-left: 175px;
+    }
+
+    .add {
+        border-style: solid;
+        border-width: thin;
+        padding: 15px;
+    }
+
+    .second {
+        background-color: #98D7C2;
+        border-style: solid;
+        color: rgba(68, 65, 65, 0.693);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-color: black;
+
+    }
+
+    .main_right {
+        float: right;
+        border-width: 40px;
+        border-style: solid;
+        color: #DDFFE7;
+        height: 450px;
+        width: 600px;
+        background-color: #98D7C2;
+    }
+
+    .output_img {
+        height: 100px;
+        width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .input_1_ent {
+        height: 100px;
+        width: 250px;
+    }
+
+    .first_2 {
+        background-color: #98D7C2;
+        color: rgb(63, 62, 62);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        text-align: center;
+        font-family: monospace;
+    }
+</style>
+
+<body>
+    <nav class="nav">
+        <img src="https://github.com/dhruvil0811/calc-o-simple/blob/main/calc.png?raw=true" class="nav_img">
+    </nav>
+    <br>
+    <div class="main_left">
+        <div class="main_left_1">
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://github.com/dhruvil0811/calc-o-simple/blob/main/input%20-%201%20.png?raw=true"
+                            class="input_img_1">
+                    </td>
+                    <td>
+                        <input id="first_1" class="first_1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://github.com/dhruvil0811/calc-o-simple/blob/main/input%20-%202.png?raw=true"
+                            class="input_img_2">
+                    </td>
+                    <td>
+                        <input id="second" class="first_1">
+                    </td>
+                </tr>
+            </table>
+            <br>
+
+            <br>
+            <table class="table">
+                <tr>
+                    <td class="button">
+                        <submit onclick="add()" class="add">+</submit>
+                    </td>
+                    <td>
+                        <submit onclick="subtract()" class="add">-</submit>
+                    </td>
+                    <td>
+                        <submit onclick="divide()" class="add">/</submit>
+                    </td>
+                    <td>
+                        <submit onclick="multiply()" class="add">x</submit>
+                    </td>
+                </tr>
+            </table>
+            <br>
+
+        </div>
+    </div>
+    <div class="main_right">
+        <img src="https://github.com/dhruvil0811/calc-o-simple/blob/main/output_img.png?raw=true" class="output_img">
+        <table>
+            <tr>
+                <td>
+                    <img src="https://github.com/dhruvil0811/calc-o-simple/blob/main/input%20-%201%20%20entered.png?raw=true"
+                        class="input_1_ent">
+                </td>
+                <td>
+                    <input id="first_2" class="first_2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://github.com/dhruvil0811/calc-o-simple/blob/main/input%20-%202%20%20entered.png?raw=true"
+                        class="input_1_ent">
+                </td>
+                <td>
+                    <input id="second_2" class="first_2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://github.com/dhruvil0811/calc-o-simple/blob/main/output_value.png?raw=true"
+                        class="input_1_ent">
+                </td>
+                <td>
+                    <input id="answer" class="first_2">
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+<script>
+    function add() {
+        var a, b, c;
+        a = Number(document.getElementById("first_1").value);
+        b = Number(document.getElementById("second").value);
+
+        c = a + b;
+        document.getElementById("answer").value = c;
+        document.getElementById("first_2").value = a;
+        document.getElementById("second_2").value = b;
+    }
+    function subtract() {
+        var a, b, c;
+        a = Number(document.getElementById("first_1").value);
+        b = Number(document.getElementById("second").value);
+        c = a - b;
+        document.getElementById("answer").value = c;
+        document.getElementById("first_2").value = a;
+        document.getElementById("second_2").value = b;
+    }
+    function divide() {
+        var a, b, c;
+        a = Number(document.getElementById("first_1").value);
+        b = Number(document.getElementById("second").value);
+        c = a / b;
+        document.getElementById("answer").value = c;
+        document.getElementById("first_2").value = a;
+        document.getElementById("second_2").value = b;
+    }
+    function multiply() {
+        var a, b, c;
+        a = Number(document.getElementById("first_1").value);
+        b = Number(document.getElementById("second").value);
+        c = a * b;
+        document.getElementById("answer").value = c;
+        document.getElementById("first_2").value = a;
+        document.getElementById("second_2").value = b;
+    }
+</script>
+
+</html>
